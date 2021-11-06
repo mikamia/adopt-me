@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
 import ThemeContext from "./ThemeContext";
-import { useState } from "react";
+import { useState, StrictMode } from "react";
 
 const App = () => {
   const themeHook = useState("pink");
@@ -12,9 +12,7 @@ const App = () => {
       <div>
         <Router>
           <header>
-            <Link to="/">
-              <h1>Adopt Me!</h1>
-            </Link>
+            <Link to="/">Adopt Me!</Link>
           </header>
           <Switch>
             <Route path="/details/:id">
@@ -25,10 +23,14 @@ const App = () => {
             </Route>
           </Switch>
         </Router>
-        <div id="modal"></div>
       </div>
     </ThemeContext.Provider>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById("root")
+);
