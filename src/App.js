@@ -25,6 +25,7 @@ const App = () => {
             </Route>
           </Switch>
         </Router>
+        <div id="modal"></div>
       </div>
     </ThemeContext.Provider>
   );
